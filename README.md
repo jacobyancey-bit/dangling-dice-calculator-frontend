@@ -39,6 +39,7 @@ A modern, responsive calculator UI built with Flutter. This repository contains 
 
 * [Flutter SDK](https://docs.flutter.dev/get-started/install) (Latest stable version - 3.12.0+)
 * [Android Studio](https://developer.android.com/studio) (for Android development)
+* [Xcode](https://developer.apple.com/xcode/) (for iOS development)
 
 ### Getting Started
 
@@ -46,3 +47,26 @@ A modern, responsive calculator UI built with Flutter. This repository contains 
    ```bash
    git clone https://github.com/jacobyancey-bit/dangling-dice-calculator-frontend.git
    cd dangling-dice-calculator-frontend
+
+Install dependencies:
+bash
+flutter pub get
+
+Run the application:
+bash
+flutter run
+
+Or for a specific device:
+bash
+flutter run -d <device_id>
+flutter run -d chrome   # For web testing
+
+🧪 Running Tests
+
+Execute the test suite to verify functionality:
+bash
+flutter test
+
+Run tests with coverage:
+bash
+flutter test --coverage
