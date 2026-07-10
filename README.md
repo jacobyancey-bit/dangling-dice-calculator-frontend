@@ -47,26 +47,130 @@ A modern, responsive calculator UI built with Flutter. This repository contains 
    ```bash
    git clone https://github.com/jacobyancey-bit/dangling-dice-calculator-frontend.git
    cd dangling-dice-calculator-frontend
+   ```
 
-Install dependencies:
-bash
-flutter pub get
+2. **Install dependencies:**
+   ```bash
+   flutter pub get
+   ```
 
-Run the application:
-bash
-flutter run
+3. **Run the application:**
+   ```bash
+   flutter run
+   ```
 
-Or for a specific device:
-bash
-flutter run -d <device_id>
-flutter run -d chrome   # For web testing
+   Or for a specific device:
+   ```bash
+   flutter run -d <device_id>
+   flutter run -d chrome   # For web testing
+   ```
 
-🧪 Running Tests
+---
+
+## 🧪 Running Tests
 
 Execute the test suite to verify functionality:
-bash
+
+```bash
 flutter test
+```
 
 Run tests with coverage:
-bash
+
+```bash
 flutter test --coverage
+```
+
+---
+
+## 📁 Project Structure
+
+```
+lib/
+├── main.dart                 # App entry point
+├── screens/                  # UI screens (calculator, history, settings)
+├── widgets/                  # Reusable widget components
+├── services/                 # Business logic (calculation, storage)
+├── models/                   # Data models
+├── providers/                # Riverpod state providers
+└── constants/                # App constants, theme, strings
+
+test/
+├── unit/                     # Unit tests for services and providers
+├── widget/                   # Widget tests for UI components
+└── fixtures/                 # Test data and mocks
+```
+
+---
+
+## 🚀 Extending the App
+
+### Adding New Screens
+
+Create a new screen in `lib/screens/`:
+
+```dart
+class MyNewScreen extends ConsumerWidget {
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Scaffold(
+      appBar: AppBar(title: Text('My Feature')),
+      body: Center(child: Text('Content here')),
+    );
+  }
+}
+```
+
+### Adding State Management
+
+Use Riverpod providers in `lib/providers/`:
+
+```dart
+final myStateProvider = StateNotifierProvider<MyNotifier, MyState>((ref) {
+  return MyNotifier();
+});
+```
+
+### Adding Storage
+
+Use `SharedPreferences` or SQLite (via `sqflite`) for persistent data:
+
+```dart
+final prefs = await SharedPreferences.getInstance();
+prefs.setString('key', 'value');
+```
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+Please ensure:
+- Code follows Dart style guidelines
+- Tests are added for new features
+- README is updated if needed
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 📧 Contact & Support
+
+For questions or issues related to the frontend:
+- Open an issue on [GitHub Issues](https://github.com/jacobyancey-bit/dangling-dice-calculator-frontend/issues)
+- For the complete AI-powered version, visit the [main repository](https://github.com/jacobyancey-bit/dangling-dice-ai-calculator)
+
+---
+
+**Happy Calculating!** 🧮✨
