@@ -39,7 +39,6 @@ A modern, responsive calculator UI built with Flutter. This repository contains 
 
 * [Flutter SDK](https://docs.flutter.dev/get-started/install) (Latest stable version - 3.12.0+)
 * [Android Studio](https://developer.android.com/studio) (for Android development)
-* [Xcode](https://developer.apple.com/xcode/) (for iOS development)
 
 ### Getting Started
 
