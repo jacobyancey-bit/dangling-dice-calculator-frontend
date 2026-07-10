@@ -1,0 +1,24 @@
+name: Flutter Build
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.22.0'
+      - run: flutter pub get
+      - run: flutter format --set-exit-if-changed lib/ test/
+      - run: flutter analyze
+      - run: |
+          ! grep -r "AIzaSy\|AIzaSw" . --include="*.dart" --include="*.yaml"
+          ! grep -r "sk_\|pk_" . --include="*.dart" --include="*.yaml"
+          ! grep -r "FIREBASE_API_KEY\|API_KEY=" . --include="*.dart" --include="*.yaml"
