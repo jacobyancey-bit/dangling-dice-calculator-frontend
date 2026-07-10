@@ -1,0 +1,24 @@
+name: Flutter Tests
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.22.0'
+      - run: flutter pub get
+      - run: flutter analyze
+      - run: flutter test --coverage
+      - run: |
+          ! grep -r "firebase" lib/ --include="*.dart"
+          ! grep -r "google_generative_ai\|gemini" lib/ --include="*.dart"
+          ! grep -r "RevenueCat\|purchases_flutter" lib/ --include="*.dart"
